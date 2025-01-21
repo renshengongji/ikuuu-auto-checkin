@@ -3,7 +3,7 @@ name: IKUUU-Auto-Checkin
 on:
   workflow_dispatch:
   schedule:
-    - cron: "2 17 * * *"
+    - cron: "5 16 * * *"
 
 jobs:
   checkin:
