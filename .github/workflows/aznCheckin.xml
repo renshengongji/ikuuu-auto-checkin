@@ -1,0 +1,27 @@
+name: IKUUU-Auto-Checkin-Azn
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "6 16 * * *"
+
+jobs:
+  checkin:
+    runs-on: ubuntu-latest
+    environment: IKUUU
+    env:
+      EMAIL: ${{ secrets.EMAIL }}
+      PASSWD: ${{ secrets.PASSWD }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js latest
+        uses: actions/setup-node@v4
+        with:
+          node-version: latest
+
+      - name: Checkin
+        shell: bash
+        run: |
+          node main.js
